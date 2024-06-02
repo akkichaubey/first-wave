@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Tailwind Demo HTML</title>
+	<!-- fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+	<!-- fonts -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.3/swiper-bundle.css">
+	<link rel="stylesheet" href="vendors/css/style.css">
+	<script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
+	<script defer src="./vendors/js/alpinejs.min.js"></script>
+</head>
+
+<body>
+	<!--Header Start-->
+	<script>
+		'use strict';
+		function menu() {
+			return [
+				{
+					label: 'Audit',
+					link: '#',
+					sub: [
+						{
+							label: 'Audit',
+							link: '#',
+						},
+						{
+							label: 'Manage',
+							link: '#',
+						},
+						{
+							label: 'Secure',
+							link: '#',
+						},
+						{
+							label: 'Automate',
+							link: '#',
+						},
+					]
+				},
+				{
+					label: 'Manage',
+					link: '#',
+				},
+				{
+					label: 'Secure',
+					link: '#',
+				},
+				{
+					label: 'Automate',
+					link: '#',
+				},
+				{
+					label: 'About',
+					link: '#',
+				},
+				{
+					label: 'Book a Demo',
+					link: '#',
+					btn: 'btn btn-sm btn-secondary'
+				},
+			];
+		}
+	</script>
+	<div class="header-wrap sticky bg-grey top-0 left-0 right-0 z-50">
+		<header class="py-3 lg:py-0 flex h-[56px] lg:h-auto"
+			x-data="{ sidemenu: false, toggle() { this.sidemenu = ! this.sidemenu } }">
+			<div class="container relative flex items-center justify-center lg:justify-between">
+				<div class="inline-flex lg:hidden absolute left-1">
+					<button @click="toggle" class="p-3">
+						<svg class="icon" width="16" height="12">
+							<use xlink:href="#menu-bar-icon"></use>
+						</svg>
+					</button>
+				</div>
+				<div class="head-logo">
+					<a href="#" class="inline-flex">
+						<img class="t-transition max-w-[129px] lg:max-w-[196px]" src="./vendors/images/logo.png"
+							alt="logo">
+					</a>
+				</div>
+				<div
+					:class="['fixed', 'lg:static', 'lg:bg-opacity-0', 'lg:w-auto', 'lg:p-0', 'lg:h-auto', 'top-0', 'bottom-0', 'bg-white', 'w-[300px]', 'px-4', 'pt-11', 'pb-4', 'h-screen', 'z-10', 't-transition', sidemenu ? 'right-0' : 'right-[-300px]']">
+					<div class="flex lg:hidden py-[19px] px-5 justify-end absolute top-0 left-0 right-0">
+						<button @click="toggle">
+							<svg class="icon" width="18" height="18">
+								<use xlink:href="#close-icon"></use>
+							</svg>
+						</button>
+					</div>
+					<div class="menu h-full lg:h-auto overflow-auto lg:overflow-visible">
+						<ul class="
+									lg:flex
+									lg:items-center
+	
+									[&>li]:relative
+									[&>li]:lg:flex
+									[&>li]:lg:flex-wrap
+									[&>li]:lg:items-center
+									[&>li]:lg:border-none 
+	
+									[&>li:not(:last-child)]:xl:pr-6 
+									[&>li:not(:last-child)]:lg:pr-5 
+									[&>li:last-child]:lg:pt-0 
+									[&>li:last-child]:pt-6 
+									
+									[&>li]:border-solid 
+									[&>li:not(:last-child)]:border-b 	
+								[&>li]:border-black 
+									[&>li]:border-opacity-75
+									
+									[&>li>a]:block
+									[&>li>a:not(.btn)]:text-sm
+									[&>li>a:not(.btn)]:font-semibold
+									[&>li>a:not(.btn)]:lg:py-[30px] 
+									[&>li>a:not(.btn)]:lg:px-2 
+									[&>li>a:not(.btn)]:p-2  
+									[&>li>a:not(.btn)]:w-full 
+									[&>li>a:not(.btn)]:lg:w-auto 
+									
+									[&>li>ul]:lg:block
+									[&>li>ul]:lg:h-auto
+									[&>li>ul]:lg:overflow-visible
+									[&>li>ul]:lg:t-transition
+									
+									[&>li:not(:hover)>ul]:lg:translate-y-4
+									[&>li:not(:hover)>ul]:lg:opacity-0
+									[&>li:not(:hover)>ul]:lg:invisible
+									
+									[&>li:hover>.icon-arrow>.icon]:lg:rotate-180
+									
+									[&>li>.icon-arrow]:lg:static 
+									[&>li>.icon-arrow]:absolute 
+									[&>li>.icon-arrow]:top-0 
+									[&>li>.icon-arrow]:right-0
+									
+									" x-data="{ menu: 0, sub:0}">
+							<li>
+								<a href="#">Audit</a>
+								<div class="icon-arrow w-9 h-9 lg:w-[18px] lg:h-[18px] [&>.icon]:w-[11px] [&>.icon]:h-[7px]"
+									@click="menu !== 1 ? menu = 1 : menu = null" :class="menu == 1 ? 'active' : ''">
+									<svg class="icon t-transition">
+										<use xlink:href="#arrow-down-icon"></use>
+									</svg>
+								</div>
+								<ul class="
+										sub-menu 
+										lg:absolute 
+										lg:top-full 
+										lg:left-[-6px] 
+										lg:py-1 
+										lg:bg-white 
+										lg:shadow-md 
+										lg:rounded-sm 
+										lg:w-52 
+										
+										[&>li]:relative 
+										[&>li]:flex 
+										[&>li]:flex-wrap 
+										[&>li]:items-center 
+										[&>li]:justify-between 
+										[&>li]:lg:border-none 
+										[&>li]:border-solid 
+										[&>li]:border-t 
+										[&>li]:border-black 
+										[&>li]:border-opacity-75
+										
+										[&>li>a]:text-sm
+										[&>li>a]:lg:py-1 
+										[&>li>a]:lg:px-[14px]
+										[&>li>a]:p-2 
+										[&>li>a]:block 
+										[&>li>a]:w-full 
+	
+										[&>li>.icon-arrow]:absolute 
+										[&>li>.icon-arrow]:top-0 
+										[&>li>.icon-arrow]:right-0
+	
+										" x-show="menu == 1" x-collapse>
+									<li>
+										<a href="#">Audit</a>
+										<div class="icon-arrow w-9 h-9 lg:w-[28px] lg:h-[28px] [&>.icon]:w-[11px] [&>.icon]:h-[7px]"
+											@click="sub !== 1 ? sub = 1 : sub = null" :class="sub == 1 ? 'active' : ''">
+											<svg class="icon t-transition lg:-rotate-90">
+												<use xlink:href="#arrow-down-icon"></use>
+											</svg>
+										</div>
+										<ul class="
+												sub-menu 
+												lg:absolute 
+												lg:top-0 
+												lg:left-full 
+												lg:py-1 
+												lg:bg-white 
+												lg:shadow-md 
+												lg:rounded-sm 
+												w-full 
+												lg:w-52 
+	
+												[&>li]:py-1 
+												[&>li]:px-[14px] 
+												[&>li]:border-t 
+												[&>li]:border-black 
+												[&>li]:border-opacity-75
+												
+												[&>li>a]:block 
+												
+												" x-show="sub == 1" x-collapse>
+											<li><a href="#">Audit</a></li>
+											<li><a href="#">Manage</a></li>
+											<li><a href="#">Secure</a></li>
+											<li><a href="#">Automate</a></li>
+										</ul>
+									</li>
+									<li>
+										<a href="#">Manage</a>
+										<!-- <ul class="sub-menu">
+													<li><a href="#">Audit</a></li>
+													<li><a href="#">Manage</a></li>
+													<li><a href="#">Secure</a></li>
+													<li><a href="#">Automate</a></li>
+												</ul> -->
+									</li>
+									<li>
+										<a href="#">Secure</a>
+										<!-- <ul class="sub-menu">
+													<li><a href="#">Audit</a></li>
+													<li><a href="#">Manage</a></li>
+													<li><a href="#">Secure</a></li>
+													<li><a href="#">Automate</a></li>
+												</ul> -->
+									</li>
+									<li><a href="#">Automate</a></li>
+								</ul>
+							</li>
+							<li><a href="#">Manage</a></li>
+							<li><a href="#">Secure</a></li>
+							<li><a href="#">Automate</a></li>
+							<li><a href="#">Resources</a></li>
+							<li><a href="#">About</a></li>
+							<li><a href="#" class="btn btn-sm btn-secondary">Book a Demo</a></li>
+						</ul>
+					</div>
+				</div>
+				<div :class="['fixed', 'top-0', 'left-0', 'right-0', 'bottom-0', 'bg-black', 'bg-opacity-80', 'z-0', 't-transition', 'lg:hidden', sidemenu ? 'opacity-100 visible' : 'opacity-0 invisible']"
+					@click="toggle()"></div>
+			</div>
+		</header>
+	</div>
+	<!--Header End-->
+
+	<!-- hero banner -->
+	<div
+		class="hero-banner relative overflow-hidden pt-12 xl:pt-24 bg-grey before:content-[''] before:w-12 before:h-12 before:bg-primary-900 before:absolute before:top-24 before:-left-[24px] before:rounded-full after:hidden md:after:block after:content-[''] after:w-[186px] after:h-[186px] after:bg-primary-400 after:absolute after:bottom-0 after:-left-[92px] after:rounded-full">
+		<div class="container">
+			<div class="flex flex-col md:flex-row items-center gap-6">
+				<div class="w-full md:w-1/2">
+					<div
+						class="banner-info [&>p]:text-base [&>p]:lg:text-lg [&>p]:xl:text-xl [&>p>strong]:block relative z-10 max-w-md">
+						<h1 class="h1 pb-4">Maximize Your IT Investment</h1>
+						<p>We will help you to audit, manage, automate and secure your entire business. <strong>Schedule
+								a demo with our specialists.</strong></p>
+						<div class="pt-4">
+							<a href="#" class="btn btn-secondary">Book a Demo</a>
+						</div>
+					</div>
+				</div>
+				<div class="w-full md:w-1/2 text-center">
+					<div
+						class="img-box relative right-0 xl:-right-10 inline-block before:content-[''] before:w-12 before:h-12 before:bg-warm-blue before:absolute before:bottom-0 before:-left-[40px] before:rounded-full ">
+						<div class="absolute top-0 right-[20px] lg:right-[90px]">
+							<img src="./vendors/images/hero-shape-1.svg" alt="hero">
+						</div>
+						<div class="img rounded-full overflow-hidden relative z-10">
+							<img src="./vendors/images/hero-banner.jpg" alt="hero">
+						</div>
+						<div class="absolute bottom-16 -left-6 lg:left-0">
+							<img src="./vendors/images/hero-shape-2.svg" alt="hero">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- hero banner -->
+
+	<div class="bg-grey py-20">
+		<div class="container">
+			<div class="title text-center pb-[70px]">
+				<h2 class="h3">Trusted By over 150,000 Companies including</h2>
+			</div>
+			<div class="slider-wrap gap-4">
+				<div class="swiper client-logo">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
+							<div class="client-box flex items-center justify-center h-[72px]">
+								<img src="./vendors/images/client-1.svg" alt="alt">
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="client-box flex items-center justify-center h-[72px]">
+								<img src="./vendors/images/client-2.svg" alt="alt">
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="client-box flex items-center justify-center h-[72px]">
+								<img src="./vendors/images/client-3.svg" alt="alt">
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="client-box flex items-center justify-center h-[72px]">
+								<img src="./vendors/images/client-4.svg" alt="alt">
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="client-box flex items-center justify-center h-[72px]">
+								<img src="./vendors/images/client-5.svg" alt="alt">
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="client-box flex items-center justify-center h-[72px]">
+								<img src="./vendors/images/client-6.svg" alt="alt">
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="client-box flex items-center justify-center h-[72px]">
+								<img src="./vendors/images/client-7.svg" alt="alt">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="swiper client-logo">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
+							<div class="client-box flex items-center justify-center h-[72px]">
+								<img src="./vendors/images/client-7.svg" alt="alt">
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="client-box flex items-center justify-center h-[72px]">
+								<img src="./vendors/images/client-8.svg" alt="alt">
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="client-box flex items-center justify-center h-[72px]">
+								<img src="./vendors/images/client-9.svg" alt="alt">
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="client-box flex items-center justify-center h-[72px]">
+								<img src="./vendors/images/client-10.svg" alt="alt">
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="client-box flex items-center justify-center h-[72px]">
+								<img src="./vendors/images/client-11.svg" alt="alt">
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="client-box flex items-center justify-center h-[72px]">
+								<img src="./vendors/images/client-12.svg" alt="alt">
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="client-box flex items-center justify-center h-[72px]">
+								<img src="./vendors/images/client-1.svg" alt="alt">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="bg-gradient py-10 lg:py-12 xl:pt-16 xl:pb-[84px]">
+		<div class="container">
+			<div class="title pb-6">
+				<span class="sub-title">Fraction of a cost</span>
+				<h2>Premium Network Management</h2>
+			</div>
+			<div class="tab-wrap" x-data="{selected:1}">
+				<ul class="flex gap-6 pb-4 overflow-auto whitespace-nowrap">
+					<li><button @click="selected = 1"
+							:class="['btn','px-4', 'py-3', 'md:py-[15px]', selected == 1 ? 'bg-primary-900 border-primary text-white' :'border-grey-600 bg-white hover:bg-primary-900 hover:border-primary hover:text-white']">Service
+							Providers</button></li>
+					<li><button @click="selected = 2"
+							:class="['btn','px-4', 'py-3', 'md:py-[15px]', selected == 2 ? 'bg-primary-900 border-primary text-white' :'border-grey-600 bg-white hover:bg-primary-900 hover:border-primary hover:text-white']">MSP</button>
+					</li>
+					<li><button @click="selected = 3"
+							:class="['btn','px-4', 'py-3', 'md:py-[15px]', selected == 3 ? 'bg-primary-900 border-primary text-white' :'border-grey-600 bg-white hover:bg-primary-900 hover:border-primary hover:text-white']">Enterprise</button>
+					</li>
+					<li><button @click="selected = 4"
+							:class="['btn','px-4', 'py-3', 'md:py-[15px]', selected == 4 ? 'bg-primary-900 border-primary text-white' :'border-grey-600 bg-white hover:bg-primary-900 hover:border-primary hover:text-white']">SMB</button>
+					</li>
+				</ul>
+				<ul class="tab-content pt-2 md:pt-4">
+					<li class="content" x-show="selected == 1" x-collapse>
+						<div class="content-box">
+							<h3 class="font-medium pb-6 hidden md:block">The whole is greater than the sum of the parts.
+								Opmantek offers MSP Software that is designed to scale.</h3>
+							<p>To quickly start my startup landing page design, I was looking for a landing page UI Kit.
+								Landify is one of the best landing page UI kit I have come across. It's so flexible,
+								well organised and easily editable.To quickly start my startup landing page design, I
+								was looking for a landing page UI Kit. Landify is one of the best landing page UI kit I
+								have come across. It's so flexible, well organised and easily editable.</p>
+							<ul
+								class="pt-1 md:pt-6 flex flex-wrap justify-center mb-[-16px] mx-[-15px] [&>li]:w-full [&>li]:sm:w-6/12 [&>li]:md:w-4/12 [&>li]:px-[15px] [&>li]:pb-[16px]">
+								<li>
+									<div
+										class="p-6 md:p-7 lg:p-10 rounded-2xl border border-solid border-grey-500 bg-white">
+										<div class="icon">
+											<img src="./vendors/images/service-1.svg" alt="service" class="svg">
+										</div>
+										<h3 class="h5 pt-6 font-normal">Get one step closer to self-improvement and
+											personal growth by learning more about yourself</h3>
+									</div>
+								</li>
+								<li>
+									<div
+										class="p-6 md:p-7 lg:p-10 rounded-2xl border border-solid border-grey-500 bg-white">
+										<div class="icon">
+											<img src="./vendors/images/service-2.svg" alt="service" class="svg">
+										</div>
+										<h3 class="h5 pt-6 font-normal">Get one step closer to self-improvement and
+											personal growth by learning more about yourself</h3>
+									</div>
+								</li>
+								<li>
+									<div
+										class="p-6 md:p-7 lg:p-10 rounded-2xl border border-solid border-grey-500 bg-white">
+										<div class="icon">
+											<img src="./vendors/images/service-3.svg" alt="service" class="svg">
+										</div>
+										<h3 class="h5 pt-6 font-normal">Get one step closer to self-improvement and
+											personal growth by learning more about yourself</h3>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</li>
+					<li class="content" x-show="selected == 2" x-collapse>
+						<div class="content-box">
+							<h3 class="font-medium pb-6 hidden md:block">The whole is greater than the sum of the parts.
+								Opmantek offers MSP Software that is designed to scale.</h3>
+							<p>To quickly start my startup landing page design, I was looking for a landing page UI Kit.
+								Landify is one of the best landing page UI kit I have come across. It's so flexible,
+								well organised and easily editable.To quickly start my startup landing page design, I
+								was looking for a landing page UI Kit. Landify is one of the best landing page UI kit I
+								have come across. It's so flexible, well organised and easily editable.</p>
+							<ul
+								class="pt-1 md:pt-6 flex flex-wrap justify-center mb-[-16px] mx-[-15px] [&>li]:w-full [&>li]:sm:w-6/12 [&>li]:md:w-4/12 [&>li]:px-[15px] [&>li]:pb-[16px]">
+								<li>
+									<div
+										class="p-6 md:p-7 lg:p-10 rounded-2xl border border-solid border-grey-500 bg-white">
+										<div class="icon">
+											<img src="./vendors/images/service-1.svg" alt="service" class="svg">
+										</div>
+										<h3 class="h5 pt-6 font-normal">Get one step closer to self-improvement and
+											personal growth by learning more about yourself</h3>
+									</div>
+								</li>
+								<li>
+									<div
+										class="p-6 md:p-7 lg:p-10 rounded-2xl border border-solid border-grey-500 bg-white">
+										<div class="icon">
+											<img src="./vendors/images/service-2.svg" alt="service" class="svg">
+										</div>
+										<h3 class="h5 pt-6 font-normal">Get one step closer to self-improvement and
+											personal growth by learning more about yourself</h3>
+									</div>
+								</li>
+								<li>
+									<div
+										class="p-6 md:p-7 lg:p-10 rounded-2xl border border-solid border-grey-500 bg-white">
+										<div class="icon">
+											<img src="./vendors/images/service-3.svg" alt="service" class="svg">
+										</div>
+										<h3 class="h5 pt-6 font-normal">Get one step closer to self-improvement and
+											personal growth by learning more about yourself</h3>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</li>
+					<li class="content" x-show="selected == 3" x-collapse>
+						<div class="content-box">
+							<h3 class="font-medium pb-6 hidden md:block">The whole is greater than the sum of the parts.
+								Opmantek offers MSP Software that is designed to scale.</h3>
+							<p>To quickly start my startup landing page design, I was looking for a landing page UI Kit.
+								Landify is one of the best landing page UI kit I have come across. It's so flexible,
+								well organised and easily editable.To quickly start my startup landing page design, I
+								was looking for a landing page UI Kit. Landify is one of the best landing page UI kit I
+								have come across. It's so flexible, well organised and easily editable.</p>
+							<ul
+								class="pt-1 md:pt-6 flex flex-wrap justify-center mb-[-16px] mx-[-15px] [&>li]:w-full [&>li]:sm:w-6/12 [&>li]:md:w-4/12 [&>li]:px-[15px] [&>li]:pb-[16px]">
+								<li>
+									<div
+										class="p-6 md:p-7 lg:p-10 rounded-2xl border border-solid border-grey-500 bg-white">
+										<div class="icon">
+											<img src="./vendors/images/service-1.svg" alt="service" class="svg">
+										</div>
+										<h3 class="h5 pt-6 font-normal">Get one step closer to self-improvement and
+											personal growth by learning more about yourself</h3>
+									</div>
+								</li>
+								<li>
+									<div
+										class="p-6 md:p-7 lg:p-10 rounded-2xl border border-solid border-grey-500 bg-white">
+										<div class="icon">
+											<img src="./vendors/images/service-2.svg" alt="service" class="svg">
+										</div>
+										<h3 class="h5 pt-6 font-normal">Get one step closer to self-improvement and
+											personal growth by learning more about yourself</h3>
+									</div>
+								</li>
+								<li>
+									<div
+										class="p-6 md:p-7 lg:p-10 rounded-2xl border border-solid border-grey-500 bg-white">
+										<div class="icon">
+											<img src="./vendors/images/service-3.svg" alt="service" class="svg">
+										</div>
+										<h3 class="h5 pt-6 font-normal">Get one step closer to self-improvement and
+											personal growth by learning more about yourself</h3>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</li>
+					<li class="content" x-show="selected == 4" x-collapse>
+						<div class="content-box">
+							<h3 class="font-medium pb-6 hidden md:block">The whole is greater than the sum of the parts.
+								Opmantek offers MSP Software that is designed to scale.</h3>
+							<p>To quickly start my startup landing page design, I was looking for a landing page UI Kit.
+								Landify is one of the best landing page UI kit I have come across. It's so flexible,
+								well organised and easily editable.To quickly start my startup landing page design, I
+								was looking for a landing page UI Kit. Landify is one of the best landing page UI kit I
+								have come across. It's so flexible, well organised and easily editable.</p>
+							<ul
+								class="pt-1 md:pt-6 flex flex-wrap justify-center mb-[-16px] mx-[-15px] [&>li]:w-full [&>li]:sm:w-6/12 [&>li]:md:w-4/12 [&>li]:px-[15px] [&>li]:pb-[16px]">
+								<li>
+									<div
+										class="p-6 md:p-7 lg:p-10 rounded-2xl border border-solid border-grey-500 bg-white">
+										<div class="icon">
+											<img src="./vendors/images/service-1.svg" alt="service" class="svg">
+										</div>
+										<h3 class="h5 pt-6 font-normal">Get one step closer to self-improvement and
+											personal growth by learning more about yourself</h3>
+									</div>
+								</li>
+								<li>
+									<div
+										class="p-6 md:p-7 lg:p-10 rounded-2xl border border-solid border-grey-500 bg-white">
+										<div class="icon">
+											<img src="./vendors/images/service-2.svg" alt="service" class="svg">
+										</div>
+										<h3 class="h5 pt-6 font-normal">Get one step closer to self-improvement and
+											personal growth by learning more about yourself</h3>
+									</div>
+								</li>
+								<li>
+									<div
+										class="p-6 md:p-7 lg:p-10 rounded-2xl border border-solid border-grey-500 bg-white">
+										<div class="icon">
+											<img src="./vendors/images/service-3.svg" alt="service" class="svg">
+										</div>
+										<h3 class="h5 pt-6 font-normal">Get one step closer to self-improvement and
+											personal growth by learning more about yourself</h3>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</li>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="py-9 md:py-12 lg:py-[70px] xl:pt-24 xl:pb-[118px] overflow-hidden">
+		<div class="container">
+			<div class="flex flex-wrap items-center -mx-[15px] [&>div]:px-[15px]">
+				<div class="w-full tablet:w-3/6 tablet:order-2 tablet:pb-0 pb-[30px]">
+					<div class="title pb-4">
+						<span class="sub-title">Machine Learning Powered, Multi-tenant</span>
+						<h2>Cybersecurity Platform</h2>
+					</div>
+					<p class="text-base tablet:text-xl leading-relaxed text-grey-700">Use our machine learning powered
+						propriotory solutions to protect your business from any cybersecurity attacts. <strong
+							class="block  text-blue">Schedule a demo with our friendly experts.</strong></p>
+					<ul class="flex flex-wrap gap-6">
+						<li>
+							<div class="box flex items-center">
+								<div class="icon shrink-0 w-14 h-14 grid place-items-center">
+									<img src="./vendors/images/demo-icon-1.svg" alt="icon">
+								</div>
+								<div class="info pl-4">
+									<h3 class="h5 pb-1 font-normal">Plug-n-play configuration</h3>
+									<p class="text-grey-700">Secure your organization without changing all the settings
+									</p>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="box flex items-center">
+								<div class="icon shrink-0 w-14 h-14 grid place-items-center">
+									<img src="./vendors/images/demo-icon-1.svg" alt="icon">
+								</div>
+								<div class="info pl-4">
+									<h3 class="h5 pb-1 font-normal">Plug-n-play configuration</h3>
+									<p class="text-grey-700">Secure your organization without changing all the settings
+									</p>
+								</div>
+							</div>
+						</li>
+					</ul>
+					<div class="btn-wrap pt-4">
+						<a href="#" class="btn btn-primary">Schedule a demo</a>
+					</div>
+				</div>
+				<div class="w-full tablet:w-3/6 tablet:order-1">
+					<div
+						class="img-box inline-block w-full tablet:w-auto relative after:content-[''] after:absolute after:top-[13px] tablet:after:top-[150px] after:-left-[17px] tablet:after:-left-[128px] after:w-[70px] after:h-[70px] after:bg-pink after:rounded-bl-[100px] before:content-[''] before:absolute before:-left-9 tablet:before:-left-[75px] before:-bottom-4 tablet:before:-bottom-[35px] before:w-[76px] before:h-11 before:rounded-t-[100px] before:bg-yellow before:z-10">
+						<div
+							class="inline-block w-full tablet:w-auto rounded-[120px] relative after:content-[''] after:absolute after:top-[167px] tablet:after:top-[150px] after:-left-[22px] tablet:after:-left-11 after:right-[33px] tablet:after:right-20 after:-bottom-[30px] tablet:after:-bottom-11 after:rounded-b-[120px] after:bg-primary-20">
+							<img src="./vendors/images/cybersecurity-platform.jpg" alt="img"
+								class="rounded-[120px] relative z-10 w-full">
+						</div>
+					</div>
+				</div>
+				<div class="w-full tablet:order-3 pt-[72px] tablet:pt-[102px]">
+					<ul
+						class="flex flex-wrap -mx-[15px] tablet:-mx-12 -mb-[30px] tablet:-mb-12 [&>li]:w-full md:[&>li]:w-3/6 [&>li]:px-[15px] tablet:[&>li]:px-12 [&>li]:pb-[30px] tablet:[&>li]:pb-12">
+						<li>
+							<div class="box flex">
+								<div
+									class="icon shrink-0 w-[72px] h-[72px] grid place-items-center bg-grey-200 rounded-full">
+									<img src="./vendors/images/demo-icon-1.svg" alt="icon">
+								</div>
+								<div class="info pl-4">
+									<h3 class="font-medium pb-2">Plug-n-play configuration</h3>
+									<p class="text-grey-700">Secure your organization without changing all the settings
+									</p>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="box flex">
+								<div
+									class="icon shrink-0 w-[72px] h-[72px] grid place-items-center bg-grey-200 rounded-full">
+									<img src="./vendors/images/demo-icon-2.svg" alt="icon">
+								</div>
+								<div class="info pl-4">
+									<h3 class="font-medium pb-2">Plug-n-play configuration</h3>
+									<p class="text-grey-700">Secure your organization without changing all the settings
+									</p>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="box flex">
+								<div
+									class="icon shrink-0 w-[72px] h-[72px] grid place-items-center bg-grey-200 rounded-full">
+									<img src="./vendors/images/demo-icon-3.svg" alt="icon">
+								</div>
+								<div class="info pl-4">
+									<h3 class="font-medium pb-2">Plug-n-play configuration</h3>
+									<p class="text-grey-700">Secure your organization without changing all the settings
+									</p>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="box flex">
+								<div
+									class="icon shrink-0 w-[72px] h-[72px] grid place-items-center bg-grey-200 rounded-full">
+									<img src="./vendors/images/demo-icon-4.svg" alt="icon">
+								</div>
+								<div class="info pl-4">
+									<h3 class="font-medium pb-2">Plug-n-play configuration</h3>
+									<p class="text-grey-700">Secure your organization without changing all the settings
+									</p>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="section bg-gradient">
+		<div class="container max-w-[1330px]">
+			<div class="bg-secondary py-9 tablet:py-12 xl:py-20 rounded-2xl">
+				<div class="content-box max-w-[1100px] mx-auto text-center">
+					<h2 class="text-white xl:text-[40px]">Need Help Making a Decision?</h2>
+					<div class="btn-wrap py-4 tablet:py-6 xl:py-11">
+						<a href="#" class="btn btn-secondary">Book a Demo</a>
+					</div>
+					<ul
+						class="flex flex-wrap -mx-4 -mb-4 [&>li]:text-sm [&>li]:px-4 [&>li]:pb-4 [&>li]:pl-[49px] [&>li]:w-1/3 [&>li]:text-white [&>li]:text-left [&>li]:bg-[url('../../vendors/images/icons/check-icon.svg')] [&>li]:bg-no-repeat [&>li]:bg-[top_left_10xp]">
+						<li>See the changes you can make by using automated features that matters to you</li>
+						<li>Learn how FirstWave technology can be customised for your business needs</li>
+						<li>Get Top notch support from our cybersecurity & infrastructure management experts</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--Footer Start-->
+	<script src="./vendors/js/swiper-bundle.min.js"></script>
+	<script src="./vendors/js/script.js"></script>
+	<svg width="0" height="0" class="hidden">
+		<symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 12" id="menu-bar-icon">
+			<path
+				d="M15.3333 6.65291H0.666667C0.298665 6.65291 0 6.35425 0 5.98625C0 5.61825 0.298665 5.31958 0.666667 5.31958H15.3333C15.7013 5.31958 16 5.61825 16 5.98625C16 6.35425 15.7013 6.65291 15.3333 6.65291Z"
+				fill="currentColor"></path>
+			<path
+				d="M15.3333 1.54159H0.666667C0.298665 1.54159 0 1.24292 0 0.874922C0 0.506922 0.298665 0.208252 0.666667 0.208252H15.3333C15.7013 0.208252 16 0.506922 16 0.874922C16 1.24292 15.7013 1.54159 15.3333 1.54159Z"
+				fill="currentColor"></path>
+			<path
+				d="M15.3333 11.7638H0.666667C0.298665 11.7638 0 11.4651 0 11.0971C0 10.7291 0.298665 10.4304 0.666667 10.4304H15.3333C15.7013 10.4304 16 10.7291 16 11.0971C16 11.4651 15.7013 11.7638 15.3333 11.7638Z"
+				fill="currentColor"></path>
+		</symbol>
+		<symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14" id="close-icon">
+			<path
+				d="M12.2548 13.1404L0.587518 1.47314C0.294774 1.1804 0.268379 0.731621 0.528593 0.471407C0.788808 0.211192 1.23759 0.237587 1.53033 0.53033L13.1976 12.1976C13.4903 12.4903 13.5167 12.9391 13.2565 13.1993C12.9963 13.4595 12.5475 13.4331 12.2548 13.1404Z"
+				fill="currentColor"></path>
+			<path
+				d="M13.1404 1.47332L1.47319 13.1406C1.18044 13.4333 0.731644 13.4597 0.471428 13.1995C0.211213 12.9392 0.237587 12.4904 0.53033 12.1977L12.1976 0.530463C12.4903 0.23772 12.9391 0.211319 13.1994 0.471534C13.4596 0.731749 13.4332 1.18058 13.1404 1.47332Z"
+				fill="currentColor"></path>
+		</symbol>
+		<symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11 7" id="arrow-down-icon">
+			<path d="M9 0.885072L5 4.87741L1.0575 0.942467L0 1.99997L5 6.99991L10.0575 1.94257L9 0.885072Z"
+				fill="currentColor"></path>
+		</symbol>
+	</svg>
+	<!--Footer End-->
+</body>
+
+</html>

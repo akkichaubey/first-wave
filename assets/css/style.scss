@@ -1,0 +1,121 @@
+@charset "UTF-8";
+@import "tailwindcss/base";
+
+@import "tailwindcss/components";
+
+@import "tailwindcss/utilities";
+
+@layer base {
+  html,
+  body {
+    @apply font-body;
+  }
+  h1,
+  .h1,
+  h2,
+  .h2,
+  h3,
+  .h3,
+  h4,
+  .h4,
+  h5,
+  .h5,
+  h6,
+  .h6 {
+    @apply font-bold leading-[1.3] text-blue;
+  }
+  h1,
+  .h1 {
+    @apply text-[28px] leading-[1.2] sm:text-[32px] md:text-[35px] lg:text-[45px] xl:text-[50px];
+  }
+  h2,
+  .h2 {
+    @apply text-[26px] sm:text-[28px] md:text-[34px] lg:text-[38px] xl:text-[40px] leading-[1.2];
+  }
+  h3,
+  .h3 {
+    @apply text-[24px];
+  }
+  h4,
+  .h4 {
+    @apply text-[20px];
+  }
+  h5,
+  .h5 {
+    @apply text-[18px];
+  }
+  h6,
+  .h6 {
+    @apply text-[16px];
+  }
+  a,
+  button {
+    @apply transition-all	duration-300 ease-in-out;
+  }
+  p {
+    @apply mb-4;
+    &:last-child {
+      @apply mb-0;
+    }
+  }
+}
+@layer components {
+  .section {
+    @apply relative;
+  }
+  .bg-gradient {
+    @apply bg-gradient-to-r from-[#F5F0FF] via-[#EFF6FE] to-[#EDFAF5];
+  }
+
+  .bg-grey {
+    @apply bg-grey-100;
+  }
+
+  .container {
+    @apply max-w-[1170px];
+  }
+  .t-transition {
+    @apply transition-all	duration-300 ease-in-out;
+  }
+  .btn {
+    @apply border
+    text-base
+    leading-[1.012]
+    font-semibold
+    inline-flex 
+    py-[15px] px-8
+    rounded-[100px]
+    transition-all
+    duration-300
+    ease-in-out;
+    &.btn-sm {
+      @apply text-sm leading-[1.012] py-3 px-5;
+    }
+    &.btn-secondary {
+      @apply bg-green border-green text-white;
+      &:is(:hover, :focus, :active) {
+        @apply bg-primary-900 border-primary;
+      }
+    }
+    &.btn-primary {
+      @apply bg-primary-900 border-primary text-white;
+      &:is(:hover, :focus, :active) {
+        @apply bg-green border-green;
+      }
+    }
+    &.btn-outline-white {
+      @apply border-grey-600 bg-white;
+    }
+  }
+
+  .title .sub-title {
+    @apply text-sm text-primary-900 pb-[15px] font-medium uppercase tracking-[2px] block;
+  }
+
+  header .icon-arrow {
+    @apply inline-flex items-center justify-center lg:pointer-events-none cursor-pointer;
+  }
+  header .icon-arrow.active .icon {
+    @apply rotate-180 lg:rotate-0;
+  }
+}

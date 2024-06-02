@@ -1,0 +1,64 @@
+
+  <!doctype>
+  <html lang="en">
+  <head>
+    <title>SVG Sprite</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+    <style>
+      html { box-sizing: border-box }
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: -apple-system,BlinkMacSystemFont,"Segoe UI","Roboto",
+          "Oxygen","Ubuntu","Cantarell","Fira Sans",
+          "Droid Sans","Helvetical Neue",sans-serif;
+        font-size: 1.125rem;
+        text-align: center
+      }
+      h1{
+        font-weight: 100;
+        margin-bottom: 1em
+      }
+      small { font-size: .34em }
+      .icon { 
+  width: 50px; 
+  height: 50px;
+  margin: .5em;
+}
+    </style>
+  </head>
+    
+  <body>
+    <!-- SVG Sprite -->
+    <svg width="0" height="0" class="hidden">
+  <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 12" id="menu-bar-icon">
+    <path d="M15.3333 6.65291H0.666667C0.298665 6.65291 0 6.35425 0 5.98625C0 5.61825 0.298665 5.31958 0.666667 5.31958H15.3333C15.7013 5.31958 16 5.61825 16 5.98625C16 6.35425 15.7013 6.65291 15.3333 6.65291Z" fill="currentColor"></path>
+    <path d="M15.3333 1.54159H0.666667C0.298665 1.54159 0 1.24292 0 0.874922C0 0.506922 0.298665 0.208252 0.666667 0.208252H15.3333C15.7013 0.208252 16 0.506922 16 0.874922C16 1.24292 15.7013 1.54159 15.3333 1.54159Z" fill="currentColor"></path>
+    <path d="M15.3333 11.7638H0.666667C0.298665 11.7638 0 11.4651 0 11.0971C0 10.7291 0.298665 10.4304 0.666667 10.4304H15.3333C15.7013 10.4304 16 10.7291 16 11.0971C16 11.4651 15.7013 11.7638 15.3333 11.7638Z" fill="currentColor"></path>
+  </symbol>
+  <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14" id="close-icon">
+    <path d="M12.2548 13.1404L0.587518 1.47314C0.294774 1.1804 0.268379 0.731621 0.528593 0.471407C0.788808 0.211192 1.23759 0.237587 1.53033 0.53033L13.1976 12.1976C13.4903 12.4903 13.5167 12.9391 13.2565 13.1993C12.9963 13.4595 12.5475 13.4331 12.2548 13.1404Z" fill="currentColor"></path>
+    <path d="M13.1404 1.47332L1.47319 13.1406C1.18044 13.4333 0.731644 13.4597 0.471428 13.1995C0.211213 12.9392 0.237587 12.4904 0.53033 12.1977L12.1976 0.530463C12.4903 0.23772 12.9391 0.211319 13.1994 0.471534C13.4596 0.731749 13.4332 1.18058 13.1404 1.47332Z" fill="currentColor"></path>
+  </symbol>
+  <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11 7" id="arrow-down-icon">
+		<path d="M9 0.885072L5 4.87741L1.0575 0.942467L0 1.99997L5 6.99991L10.0575 1.94257L9 0.885072Z" fill="currentColor"></path>
+	</symbol>
+</svg>
+    <h1>
+      SVG Sprite Demo
+      <br/>
+      <small>
+        created with <a href="https://svgsprit.es/">svgsprit.es</a>
+      </small>
+    </h1>
+    <svg class="icon">
+      <use xlink:href="#menu-bar-icon"></use>
+    </svg>
+    <svg class="icon">
+      <use xlink:href="#close-icon"></use>
+    </svg>
+    <svg class="icon">
+      <use xlink:href="#arrow-down-icon"></use>
+    </svg>
+  </body>
